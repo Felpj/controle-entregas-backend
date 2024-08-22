@@ -4,6 +4,7 @@ import { CreateUserDto } from './dtos/createUser.dto';
 import { hash } from 'bcrypt';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ReturnUserDto } from './dtos/returnUser.dto';
 
 @Injectable()
 export class UserService {
@@ -27,6 +28,15 @@ export class UserService {
     }
 
     async getAlUser(): Promise<UserEntity[]> {
-        return this.userRepository.find();
+        return await this.userRepository.find();
       }
+
+      async findByEmail(email: string): Promise<UserEntity> {
+        return await this.userRepository.findOne({
+            where: {
+                email: email,
+            },
+        });
+      }
+
 }
