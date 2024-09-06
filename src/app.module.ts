@@ -8,6 +8,8 @@ import { AddressModule } from './address/address.module';
 import { CacheModule } from './cache/cache.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
+import { DeliveryModule } from './delivery/delivery.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -31,8 +33,8 @@ import { JwtModule } from '@nestjs/jwt';
     JwtModule,
     AddressModule,
     CacheModule,
-    AuthModule],
-  controllers: [],
-  providers: [],
+    AuthModule,
+    DeliveryModule,
+  ],
 })
 export class AppModule {}
