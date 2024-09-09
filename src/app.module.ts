@@ -9,6 +9,9 @@ import { CacheModule } from './cache/cache.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { DeliveryModule } from './delivery/delivery.module';
+import { VehiclesModule } from './vehicles/vehicles.module';
+import { ProductModule } from './product/product.module';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -35,6 +38,9 @@ import { DeliveryModule } from './delivery/delivery.module';
     CacheModule,
     AuthModule,
     DeliveryModule,
+    VehiclesModule,
+    ProductModule,
+    OrderModule,
   ],
 })
 export class AppModule {}
