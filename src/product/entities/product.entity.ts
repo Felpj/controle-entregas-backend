@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { CategoryEntity } from 'src/category/entities/category.entity';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn } from 'typeorm';
 
 @Entity('product')
 export class ProductEntity {
@@ -22,4 +23,8 @@ export class ProductEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @ManyToOne(() => CategoryEntity, (category) => category.product) // Relacionamento muitos-para-um com CategoryEntity
+  @JoinColumn({ name: 'category_id' }) // Nome da coluna da chave estrangeira
+  category: CategoryEntity;
 }
